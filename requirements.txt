@@ -1,0 +1,6 @@
+flask
+pymupdf
+sentence-transformers
+requests
+pandas
+numpy

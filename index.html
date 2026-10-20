@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Lex Align | ISO 27001 Compliance Checker</title>
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="ig" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="22" y2="22"><stop offset="0" style="stop-color:var(--ico-a)"/><stop offset="1" style="stop-color:var(--ico-b)"/></linearGradient>
+      <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.7-7.94A6 6 0 0 1 17.7 8.6 4.5 4.5 0 0 1 17.5 18H16M12 21v-9m0 0-3 3m3-3 3 3" fill="none" style="stroke:var(--stroke,url(#ig))" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Zm0 0v5h5M9 13h6M9 17h6M9 9h2" fill="none" style="stroke:var(--stroke,url(#ig))" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.4 3.1 8.2 7.5 9.5 4.4-1.3 7.5-5.1 7.5-9.5V6L12 3Zm-3.2 8.8 2.4 2.4 4.2-4.4" fill="none" style="stroke:var(--stroke,url(#ig))" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-table" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5" fill="none" style="stroke:var(--stroke,url(#ig))" stroke-width="1.6"/><path d="M3.5 10h17M3.5 15h17M9.5 4.5v15" fill="none" style="stroke:var(--stroke,url(#ig))" stroke-width="1.6"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" style="stroke:var(--stroke,url(#ig))" stroke-width="1.7"/><path d="M12 11v5M12 7.8v.1" style="stroke:var(--stroke,url(#ig))" stroke-width="1.9" stroke-linecap="round"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5-12-7.5Z" fill="none" style="stroke:var(--stroke,url(#ig))" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19.5h14" fill="none" style="stroke:var(--stroke,url(#ig))" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-reset" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.6-5.9M20 4v4.5h-4.5" fill="none" style="stroke:var(--stroke,url(#ig))" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9.5 3v3.5M14.5 3v3.5M9.5 17.5V21M14.5 17.5V21M3 9.5h3.5M3 14.5h3.5M17.5 9.5H21M17.5 14.5H21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="splash" aria-hidden="true">
+    <div class="splash-inner">
+      <h1 class="logo logo-xl">Lex Align</h1>
+      <div class="loader"><span></span></div>
+    </div>
+  </div>
+
+  <div class="app">
+    <header class="top">
+      <h1 class="logo">Lex Align</h1>
+      <div class="tools">
+        <div class="key">
+          <svg class="ico"><use href="#i-chip"/></svg>
+          <input id="model" type="text" list="models" value="llama3:8b" placeholder="Ollama model" autocomplete="off" aria-label="Ollama model">
+          <datalist id="models"></datalist>
+        </div>
+        <button id="theme" class="theme" type="button" aria-label="Switch between light and dark mode">
+          <svg class="ico sun"><use href="#i-sun"/></svg>
+          <svg class="ico moon"><use href="#i-moon"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="welcome">
+        <h2>Welcome back<span class="wave">👋</span></h2>
+        <h2>ISO 27001 Compliance Checker<span class="wave">🛡️</span></h2>
+        <p>Upload your company document and get a requirement-by-requirement report with evidence and recommended fixes.</p>
+      </div>
+
+      <div class="grid">
+        <label id="drop" class="card drop" for="pdfFile">
+          <svg class="big"><use href="#i-cloud"/></svg>
+          <strong>Drag &amp; drop your company PDF here</strong>
+          <span class="or">or</span>
+          <span class="btn pill">Choose File</span>
+          <small>Supported files: PDF (single file)</small>
+        </label>
+        <input id="pdfFile" type="file" accept="application/pdf" hidden>
+
+        <div class="card filecard">
+          <div class="docico"><svg><use href="#i-file"/></svg><span class="okb" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></div>
+          <strong id="fileName">No file selected</strong>
+          <small id="fileHint">Upload the company PDF to get started</small>
+          <div class="fbar" aria-hidden="true"><span></span></div>
+        </div>
+
+        <section class="card">
+          <h3><svg class="ico"><use href="#i-shield"/></svg>Run Compliance Check</h3>
+
+          <div id="csvRow" class="csvrow">
+            <div class="csvico"><svg class="ico"><use href="#i-table"/></svg></div>
+            <div class="csvtxt">
+              <strong id="csvName">No ISO 27001 CSV selected</strong>
+              <small id="csvHint">Choose the requirements file</small>
+            </div>
+            <label class="btn ghost small" for="csvFile">Choose CSV</label>
+          </div>
+          <input id="csvFile" type="file" accept=".csv,text/csv" hidden>
+
+          <div class="actions">
+            <button id="runBtn" class="btn main-btn" type="button"><svg class="ico"><use href="#i-play"/></svg>Run Check</button>
+            <button id="clearBtn" class="btn ghost" type="button"><svg class="ico"><use href="#i-reset"/></svg>Clear</button>
+          </div>
+          <p id="message" class="message" hidden></p>
+        </section>
+
+        <section class="card info">
+          <h3><svg class="ico"><use href="#i-info"/></svg>File Information</h3>
+          <div class="row"><svg class="ico"><use href="#i-file"/></svg><span>Pages</span><b id="nPages">-</b></div>
+          <div class="row"><svg class="ico"><use href="#i-file"/></svg><span>Chunks</span><b id="nChunks">-</b></div>
+          <div class="row"><svg class="ico"><use href="#i-table"/></svg><span>Requirements</span><b id="nReqs">-</b></div>
+        </section>
+
+        <section class="card output">
+          <div id="empty" class="state">
+            <div class="lex-loader ll-idle" aria-hidden="true">
+              <svg class="lex-loader__art" viewBox="40 40 600 290">
+                <!-- empty PDF / CSV slots -->
+                <g class="ll-slot ll-slot-a">
+                  <rect class="ll-slot-box ll-slot-box-a" x="55" y="105" width="130" height="165" rx="10"/>
+                  <rect class="ll-title-a" x="71" y="123" width="68" height="8" rx="4" opacity=".4"/>
+                  <rect class="ll-line-a" x="71" y="143" width="98" height="6" rx="3"/>
+                  <rect class="ll-line-a" x="71" y="159" width="98" height="6" rx="3"/>
+                  <rect class="ll-line-a" x="71" y="175" width="80" height="6" rx="3"/>
+                  <text class="ll-slot-label ll-slot-label-a" x="120" y="246" text-anchor="middle">PDF</text>
+                </g>
+                <g class="ll-slot ll-slot-b">
+                  <rect class="ll-slot-box ll-slot-box-b" x="495" y="105" width="130" height="165" rx="10"/>
+                  <rect class="ll-title-b" x="511" y="123" width="68" height="8" rx="4" opacity=".4"/>
+                  <rect class="ll-line-b" x="511" y="143" width="98" height="6" rx="3"/>
+                  <rect class="ll-line-b" x="511" y="159" width="98" height="6" rx="3"/>
+                  <rect class="ll-line-b" x="511" y="175" width="80" height="6" rx="3"/>
+                  <text class="ll-slot-label ll-slot-label-b" x="560" y="246" text-anchor="middle">CSV</text>
+                </g>
+
+                <ellipse class="ll-ground" cx="340" cy="318" rx="60" ry="9"/>
+
+                <!-- waving robot -->
+                <g class="ll-robot-body">
+                  <line class="ll-antenna" x1="340" y1="82" x2="340" y2="62"/>
+                  <circle class="ll-bulb" cx="340" cy="58" r="7"/>
+                  <rect class="ll-ear" x="274" y="112" width="12" height="30" rx="5"/>
+                  <rect class="ll-ear" x="394" y="112" width="12" height="30" rx="5"/>
+                  <rect class="ll-shell" x="284" y="82" width="112" height="90" rx="26"/>
+                  <rect class="ll-screen" x="296" y="96" width="88" height="58" rx="16"/>
+                  <g class="ll-eyes-idle">
+                    <circle class="ll-eye" cx="322" cy="122" r="9"/>
+                    <circle class="ll-eye" cx="358" cy="122" r="9"/>
+                  </g>
+                  <path class="ll-smile" d="M326 142 Q340 150 354 142"/>
+                  <rect class="ll-neck" x="318" y="172" width="44" height="12" rx="4"/>
+                  <rect class="ll-shell" x="292" y="182" width="96" height="92" rx="28"/>
+                  <rect class="ll-screen" x="312" y="200" width="56" height="34" rx="10"/>
+                  <rect class="ll-chest-a" x="320" y="210" width="24" height="5" rx="2" opacity=".5"/>
+                  <rect class="ll-chest-b" x="320" y="221" width="38" height="5" rx="2" opacity=".5"/>
+                  <path class="ll-arm-stroke" d="M294 206 Q262 232 262 256"/>
+                  <circle class="ll-hand-a" cx="262" cy="260" r="10"/>
+                  <g class="ll-wave-arm">
+                    <path class="ll-arm-stroke" d="M386 206 Q440 192 456 146"/>
+                    <circle class="ll-hand-b" cx="458" cy="142" r="10"/>
+                  </g>
+                </g>
+
+                <!-- Ready! bubble -->
+                <g class="ll-bubble">
+                  <rect x="470" y="62" width="82" height="34" rx="17" fill="url(#llIdleGrad)"/>
+                  <path d="M488 96 l-8 12 l20 -8z" fill="#7b6bff"/>
+                  <text x="511" y="84" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">Ready!</text>
+                </g>
+                <defs>
+                  <linearGradient id="llIdleGrad" x1="0" x2="1"><stop offset="0" stop-color="#4f7cff"/><stop offset="1" stop-color="#a56bff"/></linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <strong>Your compliance report will appear here</strong>
+            <small>Upload the PDF and the CSV, then press Run Check.</small>
+          </div>
+
+          <div id="loading" class="state" hidden>
+            <div class="lex-loader" role="status" aria-label="جاري التحميل">
+              <div class="ll-stage">
+              <svg class="lex-loader__art ll-work" viewBox="40 40 600 290" aria-hidden="true">
+
+                <!-- left document -->
+                <g class="ll-float-a">
+                  <rect class="ll-doc-bg-a" x="55" y="105" width="130" height="165" rx="8"/>
+                  <rect class="ll-title-a" x="71" y="123" width="68" height="8" rx="4"/>
+                  <rect class="ll-line-a" x="71" y="143" width="98" height="6" rx="3"/>
+                  <rect class="ll-line-a" x="71" y="159" width="98" height="6" rx="3"/>
+                  <rect class="ll-hl-a" x="71" y="175" width="98" height="10" rx="3"/>
+                  <rect class="ll-line-a" x="71" y="195" width="80" height="6" rx="3"/>
+                  <rect class="ll-line-a" x="71" y="211" width="98" height="6" rx="3"/>
+                </g>
+
+                <!-- right document -->
+                <g class="ll-float-b">
+                  <rect class="ll-doc-bg-b" x="495" y="105" width="130" height="165" rx="8"/>
+                  <rect class="ll-title-b" x="511" y="123" width="68" height="8" rx="4"/>
+                  <rect class="ll-line-b" x="511" y="143" width="98" height="6" rx="3"/>
+                  <rect class="ll-line-b" x="511" y="159" width="98" height="6" rx="3"/>
+                  <rect class="ll-hl-b" x="511" y="175" width="98" height="10" rx="3"/>
+                  <rect class="ll-line-b" x="511" y="195" width="80" height="6" rx="3"/>
+                  <rect class="ll-line-b" x="511" y="211" width="98" height="6" rx="3"/>
+                </g>
+
+                <!-- scan beams -->
+                <path class="ll-beam-a" d="M190 150 Q250 105 300 135"/>
+                <path class="ll-beam-b" d="M490 150 Q430 105 380 135"/>
+
+                <!-- ground shadow -->
+                <ellipse class="ll-ground" cx="340" cy="318" rx="60" ry="9"/>
+
+                <!-- robot -->
+                <g class="ll-robot-body">
+                  <line class="ll-antenna" x1="340" y1="82" x2="340" y2="62"/>
+                  <circle class="ll-bulb" cx="340" cy="58" r="7"/>
+                  <rect class="ll-ear" x="274" y="112" width="12" height="30" rx="5"/>
+                  <rect class="ll-ear" x="394" y="112" width="12" height="30" rx="5"/>
+                  <rect class="ll-shell" x="284" y="82" width="112" height="90" rx="26"/>
+                  <rect class="ll-screen" x="296" y="96" width="88" height="58" rx="16"/>
+                  <g class="ll-eyes">
+                    <circle class="ll-eye" cx="322" cy="122" r="9"/>
+                    <circle class="ll-eye" cx="358" cy="122" r="9"/>
+                  </g>
+                  <path class="ll-smile" d="M326 142 Q340 150 354 142"/>
+                  <rect class="ll-neck" x="318" y="172" width="44" height="12" rx="4"/>
+                  <rect class="ll-shell" x="292" y="182" width="96" height="92" rx="28"/>
+                  <rect class="ll-screen" x="312" y="200" width="56" height="34" rx="10"/>
+                  <rect class="ll-chest-a" x="320" y="210" width="24" height="5" rx="2"/>
+                  <rect class="ll-chest-b" x="320" y="221" width="38" height="5" rx="2"/>
+                  <path class="ll-arm-stroke" d="M294 206 Q250 190 215 170"/>
+                  <path class="ll-arm-stroke" d="M386 206 Q430 190 465 170"/>
+                  <circle class="ll-hand-a" cx="212" cy="168" r="10"/>
+                  <circle class="ll-hand-b" cx="468" cy="168" r="10"/>
+                  <ellipse class="ll-jet" cx="340" cy="290" rx="34" ry="10"/>
+                </g>
+              </svg>
+              <svg class="lex-loader__art ll-done" viewBox="40 40 600 290" aria-hidden="true">
+    <ellipse class="ll-ground" cx="340" cy="318" rx="60" ry="9"/>
+    <g class="ll-confetti">
+    <circle class="ll-cf ll-cf-a" cx="150" cy="60" r="4.5" style="--cx:-18px;animation-delay:0.45s;animation-duration:2.38s"/>
+    <rect class="ll-cf ll-cf-b" x="200" y="55" width="8" height="13" rx="1.5" style="--cx:8px;animation-delay:0.1s;animation-duration:2.84s"/>
+    <rect class="ll-cf ll-cf-c" x="250" y="55" width="8" height="13" rx="1.5" style="--cx:-8px;animation-delay:0.82s;animation-duration:3.29s"/>
+    <circle class="ll-cf ll-cf-d" cx="300" cy="60" r="4.5" style="--cx:-18px;animation-delay:0.05s;animation-duration:2.72s"/>
+    <rect class="ll-cf ll-cf-e" x="340" y="55" width="8" height="13" rx="1.5" style="--cx:-18px;animation-delay:0.34s;animation-duration:2.86s"/>
+    <rect class="ll-cf ll-cf-a" x="380" y="55" width="8" height="13" rx="1.5" style="--cx:-8px;animation-delay:1.16s;animation-duration:2.35s"/>
+    <circle class="ll-cf ll-cf-b" cx="430" cy="60" r="4.5" style="--cx:-18px;animation-delay:0.88s;animation-duration:2.9s"/>
+    <rect class="ll-cf ll-cf-c" x="480" y="55" width="8" height="13" rx="1.5" style="--cx:-8px;animation-delay:0.81s;animation-duration:2.68s"/>
+    <rect class="ll-cf ll-cf-d" x="530" y="55" width="8" height="13" rx="1.5" style="--cx:8px;animation-delay:0.07s;animation-duration:3.23s"/>
+    <circle class="ll-cf ll-cf-e" cx="570" cy="60" r="4.5" style="--cx:8px;animation-delay:0.59s;animation-duration:2.85s"/>
+    <rect class="ll-cf ll-cf-a" x="260" y="55" width="8" height="13" rx="1.5" style="--cx:-18px;animation-delay:0.78s;animation-duration:3.02s"/>
+    <rect class="ll-cf ll-cf-b" x="410" y="55" width="8" height="13" rx="1.5" style="--cx:8px;animation-delay:0.81s;animation-duration:2.97s"/>
+    <circle class="ll-cf ll-cf-c" cx="330" cy="60" r="4.5" style="--cx:-18px;animation-delay:0.14s;animation-duration:3.05s"/>
+    <rect class="ll-cf ll-cf-d" x="470" y="55" width="8" height="13" rx="1.5" style="--cx:18px;animation-delay:0.87s;animation-duration:2.8s"/>
+    </g>
+    <g class="ll-jump">
+      <line class="ll-antenna" x1="340" y1="82" x2="340" y2="62"/>
+      <circle class="ll-bulb-ok" cx="340" cy="58" r="7"/>
+      <rect class="ll-ear" x="274" y="112" width="12" height="30" rx="5"/>
+      <rect class="ll-ear" x="394" y="112" width="12" height="30" rx="5"/>
+      <rect class="ll-shell" x="284" y="82" width="112" height="90" rx="26"/>
+      <rect class="ll-screen" x="296" y="96" width="88" height="58" rx="16"/>
+      <path class="ll-happy-eyes" d="M312 128 Q322 116 332 128 M348 128 Q358 116 368 128"/>
+      <path class="ll-smile" d="M322 140 Q340 154 358 140"/>
+      <rect class="ll-neck" x="318" y="172" width="44" height="12" rx="4"/>
+      <rect class="ll-shell" x="292" y="182" width="96" height="92" rx="28"/>
+      <rect class="ll-screen" x="312" y="200" width="56" height="40" rx="10"/>
+      <path class="ll-check" d="M326 220 L336 230 L356 210"/>
+      <path class="ll-arm-stroke" d="M294 206 Q252 186 236 146"/>
+      <path class="ll-arm-stroke" d="M386 206 Q428 186 444 146"/>
+      <circle class="ll-hand-a" cx="236" cy="142" r="10"/>
+      <circle class="ll-hand-b" cx="444" cy="142" r="10"/>
+    </g>
+  </svg>
+            </div>
+
+            </div>
+            <strong id="loadTitle">Checking requirements…</strong>
+            <small id="progText">Starting…</small>
+            <ol class="steps" id="steps" aria-label="Progress">
+              <li>Upload</li><li>Index</li><li>Check</li><li>Report</li>
+            </ol>
+            <div class="bar"><span id="barFill"></span></div>
+            <div class="live">
+              <span class="ok" id="liveOk">Compliant 0</span>
+              <span class="part" id="livePart">Partial 0</span>
+              <span class="bad" id="liveBad">Not compliant 0</span>
+            </div>
+          </div>
+
+          <div id="result" hidden>
+            <div class="rep-head">
+              <div class="score"><small>Overall compliance</small><b id="rPct">0%</b></div>
+              <div class="chips">
+                <div class="chip ok"><small>Compliant</small><b id="cOk">0</b></div>
+                <div class="chip part"><small>Partial</small><b id="cPart">0</b></div>
+                <div class="chip bad"><small>Not compliant</small><b id="cBad">0</b></div>
+                <div class="chip unk" id="cUnkBox" hidden><small>Unknown</small><b id="cUnk">0</b></div>
+              </div>
+            </div>
+            <div class="dl">
+              <a class="btn ghost small" href="/api/report.html" download="iso27001_compliance_report.html"><svg class="ico"><use href="#i-download"/></svg>HTML report</a>
+              <a class="btn ghost small" href="/api/report.csv" download="iso27001_compliance_report.csv"><svg class="ico"><use href="#i-download"/></svg>CSV</a>
+            </div>
+            <div class="filters" id="filters">
+              <button type="button" data-f="ALL" class="on">All</button>
+              <button type="button" data-f="NOT_COMPLIANT">Not compliant</button>
+              <button type="button" data-f="PARTIAL">Partial</button>
+              <button type="button" data-f="COMPLIANT">Compliant</button>
+            </div>
+            <div id="reqList" class="reqlist"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
